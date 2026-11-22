@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#101513">
+  <title>Second Story — House of New Beginnings</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Second Story home"><span class="brand-mark">2</span><span>SECOND<span class="brand-light">STORY</span></span></a>
+      <div class="chapter-label"><span class="live-dot"></span><span>NEW BEGINNINGS HOUSE</span><i></i><span id="day-label">DAY 01</span></div>
+      <div class="top-actions"><button class="icon-btn" id="journal-btn" title="Open journal">☷ <span>JOURNAL</span></button><button class="icon-btn" id="sound-btn" title="Toggle ambience">♫</button><button class="icon-btn" id="help-btn" title="How to play">?</button></div>
+    </header>
+    <section class="game-layout">
+      <div class="world-panel">
+        <div class="world-heading"><div><div class="eyebrow" id="floor-eyebrow">GROUND FLOOR / 03</div><h1 id="floor-title">A place to land<span class="heading-period">.</span></h1></div><div class="clock-card"><span class="clock-icon">◷</span><div><b id="time-label">8:15 AM</b><small>MONDAY · MORNING</small></div></div></div>
+        <div class="scene-wrap" id="scene-wrap">
+          <div class="scene-badge"><span class="sun-glyph">✳</span><span>HOUSE MAP</span><span class="badge-divider"></span><span id="scene-room-label">KITCHEN · LIVING ROOM · ENTRY</span></div>
+          <div id="scene" aria-label="Interactive 3D house map"></div>
+          <div class="scene-help"><span class="keycap">W</span><span class="keycap">A</span><span class="keycap">S</span><span class="keycap">D</span><span>MOVE</span><span class="help-divider"></span><span class="keycap">E</span><span>TALK</span><span class="help-divider"></span><span>CLICK A PERSON TO VISIT</span></div>
+          <div class="floor-switcher" role="group" aria-label="Choose floor"><button class="floor-btn" data-floor="upstairs"><span class="floor-num">03</span><span>UPSTAIRS</span><span class="floor-arrow">↑</span></button><button class="floor-btn active" data-floor="ground"><span class="floor-num">02</span><span>GROUND</span><span class="floor-arrow">●</span></button><button class="floor-btn" data-floor="basement"><span class="floor-num">01</span><span>BASEMENT</span><span class="floor-arrow">↓</span></button></div>
+          <div class="scene-vignette"></div>
+        </div>
+        <div class="world-footer"><div class="tip"><span class="tip-star">✦</span><span id="tip-text">Small acts of care can make a big difference.</span></div><div class="zoom-controls"><button id="zoom-out" aria-label="Zoom out">−</button><span>ZOOM</span><button id="zoom-in" aria-label="Zoom in">+</button></div></div>
+      </div>
+      <aside class="side-panel">
+        <section class="player-card"><div class="player-avatar"><div class="avatar-face">☺</div><span class="avatar-star">✦</span></div><div class="player-details"><div class="eyebrow">YOUR STORY</div><h2>Jordan <span>“J”</span> Reed</h2><p>Day one. Fresh start.</p></div><button class="more-btn" id="player-info" aria-label="Player info">···</button><div class="player-stats"><div class="stat"><span class="stat-icon energy-icon">ϟ</span><div><small>ENERGY</small><div class="stat-bar"><i id="energy-bar"></i></div></div><b id="energy-value">82</b></div><div class="stat"><span class="stat-icon trust-icon">✳</span><div><small>HOUSE TRUST</small><div class="stat-bar trust-bar"><i id="trust-bar"></i></div></div><b id="trust-value">50</b></div><div class="stat food-stat"><span class="stat-icon">▣</span><div><small>SNACKS</small><strong id="food-count">2</strong></div><button id="kitchen-btn" class="mini-action">GET FOOD <span>↗</span></button></div></div></section>
+        <section class="people-section"><div class="section-title"><div><span class="eyebrow">YOUR HOUSEMATES</span><h2>The people here <span id="people-count">09</span></h2></div><button id="sort-btn" class="sort-btn">NEAREST <span>⌄</span></button></div><div class="people-list" id="people-list"></div></section>
+        <section class="daily-card"><div class="daily-top"><span class="eyebrow">TODAY'S INTENTION</span><span class="intent-icon">✧</span></div><p id="intention-text">“Show up for yourself, and make room for someone else.”</p><div class="daily-bottom"><span>HOUSE NOTE</span><span>READ <b>↗</b></span></div></section>
+      </aside>
+    </section>
+    <footer class="bottom-bar"><div class="footer-mark"><span class="footer-symbol">✳</span> A STORY ABOUT STARTING AGAIN</div><div class="footer-center"><span class="footer-live"></span><span id="status-line">You’re settling in. Take a look around.</span></div><button class="save-status" id="save-btn"><span class="save-dot"></span><span>PROGRESS SAVED</span></button></footer>
+  </main>
+  <div class="modal-backdrop hidden" id="dialogue-modal"><section class="dialogue-card" role="dialog" aria-modal="true" aria-labelledby="dialogue-name"><button class="modal-close" data-close>×</button><div class="dialogue-person"><div class="dialogue-avatar" id="dialogue-avatar"></div><div><div class="eyebrow" id="dialogue-role">HOUSEMATE · GROUND FLOOR</div><h2 id="dialogue-name">Name</h2><div class="mood-row"><span class="mood-dot"></span><span id="dialogue-mood">A little guarded</span><span class="relationship" id="dialogue-relation">✦ 50</span></div></div></div><div class="dialogue-quote"><span class="quote-mark">“</span><p id="dialogue-line">Dialogue goes here.</p></div><div class="choice-heading"><span>WHAT DO YOU SAY?</span><span>CHOOSE YOUR APPROACH</span></div><div class="choice-list" id="choice-list"></div><div class="dialogue-foot"><span>YOUR CHOICES SHAPE THE HOUSE</span><span>ESC TO CLOSE</span></div></section></div>
+  <div class="modal-backdrop hidden" id="journal-modal"><section class="journal-card" role="dialog" aria-modal="true"><button class="modal-close" data-close>×</button><div class="eyebrow">YOUR PRIVATE JOURNAL</div><h2>One day at a time<span>.</span></h2><p class="journal-intro">A little space to notice how the day is going.</p><div class="journal-grid"><div><span class="eyebrow">TODAY</span><h3 id="journal-day">Day 01 · Monday</h3><p id="journal-summary">You arrived at New Beginnings House with a clean slate and two snacks in your bag.</p></div><div><span class="eyebrow">MOMENTS THAT MATTER</span><ul id="journal-events"><li>Your story starts here.</li></ul></div></div><div class="journal-quote">“Progress isn't a straight line. It's choosing to begin again.”</div></section></div>
+  <div class="modal-backdrop hidden" id="help-modal"><section class="help-card" role="dialog" aria-modal="true"><button class="modal-close" data-close>×</button><div class="eyebrow">A QUICK ORIENTATION</div><h2>Find your footing<span>.</span></h2><div class="help-grid"><div><b>01 / EXPLORE</b><p>Use WASD or the arrow keys to walk around. Click a housemate in the map or the list to move to them.</p></div><div><b>02 / CONNECT</b><p>Press E when you're close to someone, or choose a housemate to start a conversation.</p></div><div><b>03 / CHOOSE</b><p>Be kind, share a snack, or stir up trouble. Your choices change how each person sees you.</p></div><div><b>04 / TAKE A BREATH</b><p>Switch floors any time. Check your journal for a record of the moments you make.</p></div></div><p class="help-note">This is a fictional story. Recovery is personal, and asking a trusted professional for support is always okay.</p></section></div>
+  <div class="toast" id="toast"><span>✦</span><span id="toast-text">A little kindness goes a long way.</span></div>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
